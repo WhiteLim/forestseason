@@ -8,7 +8,7 @@ const noto = Noto_Sans_KR({
     weight: '400',
     subsets: ['latin'],
   })
-export default function Mode() {
+export default function Mode({children}) {
     const [mode,setMode] = useState(light);
     const style = {
         body : {
@@ -47,7 +47,7 @@ export default function Mode() {
         <body style={style.body}>
             <Header style={style} mode={mode} setMode={setMode} />
             <main>
-                
+                {children}
             </main>
             <Footer />
         </body>
