@@ -7,10 +7,10 @@ export const metadata = {
   description: 'Whitelim Protfolio - Next fotest',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout() {
   return (
     <html lang="en">
-      <Mode children={children} />
+      <Mode  />
     </html>
   )
 }

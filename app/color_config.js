@@ -6,7 +6,9 @@ export  const light = {
     btn : "#D1DBE4",
     btn_active : "#90A4AE",
     mode_btn : "#000",
-    mode_color : "#fff"
+    mode_color : "#fff",
+    main_btn : '#5F6A79',
+    main_btn_color : '#fff'
 }
 
 export  const dark = {
@@ -14,8 +16,10 @@ export  const dark = {
     top_bar : "#1A1A1A",
     line : "#2A2A2A",
     font_color : "#ffffff",
-    btn : "#D1DBE4",
+    btn : "#6F736D",
     btn_active : "#ffffff",
     mode_btn : "#fff",
-    mode_color : "#000"
+    mode_color : "#000",
+    main_btn : '#FAFAFA',
+    main_btn_color : '#000'
 }

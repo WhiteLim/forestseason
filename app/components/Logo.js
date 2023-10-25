@@ -5,7 +5,8 @@ const style = {
     logo: {
         width:'100%',
         maxWidth : '120px',
-        objectFit : 'cover'
+        objectFit : 'cover',
+        cursor: 'pointer'
     },
 };
 
