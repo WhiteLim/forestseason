@@ -4,7 +4,7 @@ import Logo from './components/Logo'
 import {light,dark} from './color_config'
 
 
-export default function Header({noto,mode,setMode}) {
+export default function Header({noto,mode,setMode,setPage}) {
     const [modeName, setModename] = useState('Dark Mode');
     useEffect(()=>{
         setModename(mode == light ? "Dark Mode" : "Light Mode")
@@ -47,7 +47,7 @@ export default function Header({noto,mode,setMode}) {
 
   return (
     <section style={style.header_box}>
-        <Logo />
+        <Logo setPage={setPage} />
         <p style={style.header_p}>White Lim - ForestSeason</p>
         <button onClick={modeChang} style={style.modebtn}>{modeName}</button>
     </section>

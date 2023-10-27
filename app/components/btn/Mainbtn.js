@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Mainbtn({mode,children}) {
+export default function Mainbtn({mode,children,setPage}) {
     const style= {
         background : mode.main_btn,
         border:'0',
@@ -11,5 +11,13 @@ export default function Mainbtn({mode,children}) {
         fontSize: '20px',
         fontWeight: '700'
     }
-  return <button style={style}> {children} </button>
+
+    const change = ()=>{
+      switch(children) {
+        case 'White Lim' : setPage('lim'); break;
+        case 'Protfolio' : setPage('pr'); break;
+        case 'Blog' : setPage('blog'); break;
+      }
+    }
+  return <button onClick={change} style={style}> {children} </button>
 }

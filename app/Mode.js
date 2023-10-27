@@ -31,10 +31,10 @@ export default function Mode() {
     }
     return (
         <body style={style.body}>
-            <Header mode={mode} noto={noto} setMode={setMode} />
+            <Header mode={mode} noto={noto} setMode={setMode} setPage={setPage} />
             <main style={style.main}>
                 {
-                    page == 'home' ? <Home mode={mode} />
+                    page == 'home' ? <Home mode={mode} setPage={setPage}  />
                     : page == 'lim' ? <Lim mode={mode} />
                     : page == 'pr' ? <Pr mode={mode} />
                     : <Blog />

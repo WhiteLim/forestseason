@@ -1,4 +1,3 @@
-import { useRouter } from 'next/navigation';
 import React from 'react'
 
 const style = {
@@ -10,11 +9,9 @@ const style = {
     },
 };
 
-export default function Logo() {
-  const move = useRouter();
+export default function Logo({setPage}) {
   const home = ()=>{
-    console.log('a');
-    move.push('/')
+    setPage('home')
   }
   return <figure onClick={home}><img src="/image/logo-nt.png" style={style.logo} /></figure>
 }
