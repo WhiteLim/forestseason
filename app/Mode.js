@@ -1,42 +1,28 @@
 "use client"
-import { useState } from "react";
-import {light,dark} from './color_config'
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { Noto_Sans_KR } from '@next/font/google'
 import Home from "./page/Home";
 import Lim from "./page/Lim";
 import Pr from "./page/Pr";
 import Blog from "./page/Blog";
-const noto = Noto_Sans_KR({
-    weight: '400',
-    subsets: ['latin'],
-  })
+import {light,dark} from './color_config'
+import {style,a} from './components/Style'
+
 export default function Mode() {
     const [mode,setMode] = useState(light);
     const [page,setPage] = useState('home');
-    const style = {
-        body : {
-            background : mode.background,
-            color : mode.font_color,
-            fontFamily : noto.style.fontFamily
-        },
-        main : {
-            marginLeft : '70px',
-            padding:'40px',
-            display:'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-        }       
-    }
+    const [className,setClassName] = useState('light')
+    const modeChang = ()=>{ setMode(mode == light ? dark : light)}
+    useEffect(()=>{a( mode == light ? light : dark ); setClassName(mode == light ? 'light' : 'dark' ) },[mode])
     return (
-        <body style={style.body}>
-            <Header mode={mode} noto={noto} setMode={setMode} setPage={setPage} />
+        <body style={style.body} className={className}>
+            <Header mode={mode} setPage={setPage} modeChang={modeChang} />
             <main style={style.main}>
                 {
                     page == 'home' ? <Home mode={mode} setPage={setPage}  />
-                    : page == 'lim' ? <Lim mode={mode} />
-                    : page == 'pr' ? <Pr mode={mode} />
+                    : page == 'lim' ? <Lim  />
+                    : page == 'pr' ? <Pr  />
                     : <Blog />
                 }
             </main>

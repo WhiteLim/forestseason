@@ -1,32 +1,16 @@
-import React from 'react'
-
+import React, { useEffect, useState } from 'react'
+import {style} from './components/Style'
+import {light,dark} from './color_config'
 export default function Footer({mode,page,setPage}) {
-  const style = {
-    box : {
-      position:'fixed',
-      background : mode.background,
-      borderRight : `1px solid ${mode.line}`,
-      top:'100px',
-      width:'70px',
-      height:'100vh',
-      display:'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'flex-start',
-      gap :'46px',
-      paddingTop :'30px',
-      cursor: 'pointer'
-    }
-  }
-  const move = (v)=>{
-    setPage(v)
-  }
+  const [modeName, setModeName] = useState('l_')
+  const move = (v)=>{ setPage(v) }
+  useEffect(()=>{ setModeName(mode == light ? 'l_' : 'd_' ) },[mode])
   return (
-    <section style={style.box}>
-      <figure onClick={()=>{move('home')}}><img src={`/image/icon/${page == 'home' ?  'home_active' : 'home'}.png`} /></figure>
-      <figure onClick={()=>{move('lim')}}><img src={`/image/icon/${page == 'lim' ?  'lim_active' : 'lim'}.png`} /></figure>
-      <figure onClick={()=>{move('pr')}}><img src={`/image/icon/${page == 'pr' ?  'pr_active' : 'pr'}.png`} /></figure>
-      <figure onClick={()=>{move('blog')}}><img src={`/image/icon/${page == 'blog' ?  'blog_active' : 'blog'}.png`} /></figure>
+    <section style={style.footbox}>
+      <figure onClick={()=>{move('home')}}><img src={`/image/icon/${page == `home` ?  `${modeName}home_active.png` :  `${modeName}home.png` } `} /></figure>
+      <figure onClick={()=>{move('lim')}}><img src={`/image/icon/${page == `lim` ?  `${modeName}lim_active.png` : `${modeName}lim.png` } `} /></figure>
+      <figure onClick={()=>{move('pr')}}><img src={`/image/icon/${page == `pr` ?  `${modeName}pr_active.png` : `${modeName}pr.png` } `}/></figure>
+      <figure onClick={()=>{move('blog')}}><img src={`/image/icon/${page == `blog` ?  `${modeName}blog_active.png` : `${modeName}blog.png` }`} /></figure>
     </section>
   )
 }
