@@ -1,3 +1,12 @@
 * {box-sizing: border-box;}
 html, body { margin:0 0; padding:0 0;}
 figure {margin:0; padding:0;}
+
+*::-webkit-scrollbar{width:5px; background: #1A1A1A;}
+*::-webkit-scrollbar-thumb{background:#fafafa; border-radius: 100px;}
+
+p {margin:0; line-height: 2;}
+button{cursor: pointer;}
+
+ul {list-style: none; margin:0; padding:20px; display: flex; overflow-x: auto;}
+ul > li {min-width: 100px; text-align: center; cursor: pointer;}

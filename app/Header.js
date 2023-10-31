@@ -11,7 +11,7 @@ export default function Header({mode,setPage,modeChang}) {
 
   return (
     <section style={style.header_box}>
-        <Logo setPage={setPage} />
+        <Logo mode={mode} setPage={setPage} />
         <p style={style.header_p}>White Lim - ForestSeason</p>
         <button onClick={modeChang} style={style.modebtn}>{modeName}</button>
     </section>
