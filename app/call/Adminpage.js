@@ -5,7 +5,7 @@ import Bl from './admin/Bl'
 import Skill from './admin/Skill'
 import {style} from '../components/Style'
 
-export default function Adminpage({cf,Config}) {
+export default function Adminpage({cf,setCf}) {
   const [ pages, setpages ] = useState('config')
   return (
     <div style={style.height}>
@@ -17,7 +17,7 @@ export default function Adminpage({cf,Config}) {
       </ul>
       <section>
         {
-          pages == 'config' ? <Conf cf={cf} Config={Config} /> : pages == 'skill' ? <Skill /> : pages == 'portfolio' ? <Pr /> : <Bl />
+          pages == 'config' ? <Conf cf={cf} setCf={setCf} /> : pages == 'skill' ? <Skill /> : pages == 'portfolio' ? <Pr /> : <Bl />
         }
       </section>
     </div>

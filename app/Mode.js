@@ -8,7 +8,7 @@ import Pr from "./page/Pr";
 import Blog from "./page/Blog";
 import {light,dark} from './color_config'
 import {style,a} from './components/Style'
-import {data,Config} from './call/Config'
+// import {data,Config} from './call/Config'
 import Admin from "./page/Admin";
 
 export default function Mode() {
@@ -23,17 +23,19 @@ export default function Mode() {
         setMode(item == 'light' ? light : dark)
     }
     useEffect(()=>{a( mode == light ? light : dark ); setClassName(mode == light ? 'light' : 'dark' ) },[mode])
-    function callcf() {
-        let type = false;
-        const a = setInterval(() => {
-            if(type === false) {
-                setCf(data.data)
-            }
-            if(cf) {
-                clearInterval(a);
-                type = true;
-            }
-        });
+    async function callcf() {
+        // let type = false;
+        // const a = setInterval(() => {
+        //     if(type === false) {
+        //         setCf(data.data)
+        //     }
+        //     if(cf) {
+        //         clearInterval(a);
+        //         type = true;
+        //     }
+        // });
+        data = await axios.get('../api/config/')
+        setCf(data.data)
     }
     useEffect(()=>{
         callcf();
@@ -61,7 +63,7 @@ export default function Mode() {
                     page == 'home' ? <Home mode={mode} display={display} setPage={setPage} cf={cf}  />
                     : page == 'lim' ? <Lim display={display} cf={cf} />
                     : page == 'pr' ? <Pr  />
-                    : page == 'blog' ? <Blog /> : <Admin cf={cf} Config={Config} />
+                    : page == 'blog' ? <Blog /> : <Admin cf={cf} setCf={setCf}/>
                 }
             </main>
             <Footer mode={mode} page={page} setPage={setPage} display={display} />

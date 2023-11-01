@@ -2,7 +2,7 @@ import axios from 'axios'
 import {style} from '../../components/Style'
 import React, { useState } from 'react'
 
-export default function Conf({cf,Config}) {
+export default function Conf({cf}) {
     const [ state, setState ] = useState(false);
     const [name,setName] = useState(cf[0]?.name)
     const [nickname,setNickname] = useState(cf[0]?.nickname)
@@ -16,7 +16,7 @@ export default function Conf({cf,Config}) {
         const id = cf[0]?.num;
         const sendData = {data,id}
         axios.put('/api/config',sendData)
-        .then(res=> Config() )
+        .then(res => setCf(res.data))
         setState(true)
         setTimeout(() => {
             setState(false)                

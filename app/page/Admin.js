@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import {style} from '../components/Style'
 import Adminpage from '../call/Adminpage';
 
-export default function Admin({cf,Config}) {
+export default function Admin({cf,setCf}) {
     const [ acc, setAcc ] = useState(false);
     const [ state, setState ] = useState(false);
     const check = (e)=>{
@@ -33,7 +33,7 @@ export default function Admin({cf,Config}) {
             </div>
         </section>
         :
-        <Adminpage cf={cf} Config={Config} />
+        <Adminpage cf={cf} setCf={setCf}/>
       }
     </div>
   )
