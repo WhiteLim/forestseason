@@ -10,3 +10,11 @@ button{cursor: pointer;}
 
 ul {list-style: none; margin:0; padding:20px; display: flex; overflow-x: auto;}
 ul > li {min-width: 100px; text-align: center; cursor: pointer;}
+.admin {position:sticky; top:0;}
+.admin > li {min-width: 200px;}
+
+form input[type='text'] {
+    height: 45px;
+    font-size: 18px;
+    padding:10px;
+}

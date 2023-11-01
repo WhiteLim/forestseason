@@ -17,6 +17,8 @@ export function a(type=dark){
         codear : {color : "#0431FA"},
         codebu : {color : "#39ADB5"},
         dfs : {...dfb, flexDirection: 'column', height:'100%'},
+        dff : {...df},
+        dfc : {...dfonly, flexDirection: 'column', gap:'30px'},
         body : {
             background : type.background,
             color : type.font_color,
@@ -113,8 +115,7 @@ export function a(type=dark){
             flexDirection: 'column',
             ...dfs,
             gap :'46px',
-            paddingTop :'30px',
-            cursor: 'pointer'
+            paddingTop :'30px'
         },
         mfootbox : {
             position:'fixed',
@@ -251,6 +252,39 @@ export function a(type=dark){
         },
         ma : {
             padding:'20px'
+        },
+        pointer : {
+            cursor: 'pointer'
+        },
+        alert : {
+            display:'none'
+        },
+        alert_active : {
+            position:'fixed',
+            ...df,
+            flexDirection:'column',
+            top:'100px', bottom:'0', marginTop:'auto', marginBottom:'auto',
+            left:'70px', right:'0', marginLeft:'auto', marginRight:'auto',
+            background:'rgba(26,26,26,0.9)',
+            zIndex:'2'
+        },
+        submit : {
+            display:'block',
+            width:'100%',
+            padding:'20px',
+            marginTop:'20px',
+            border:'0',
+            background:type.top_bar,
+            color:type.font_color,
+            fontFamily : noto.style.fontFamily,
+            fontSiae : '20px'
+        },
+        height : {
+            height:'100%', width:'100%', padding:'0 30px'
+        },
+        adminheader : {
+            background:type.top_bar,
+            ...df
         }
     }
     return style;
