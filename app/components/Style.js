@@ -166,8 +166,25 @@ export function a(type=dark){
             flexDirection: 'column',
             overflowY: 'auto'
         },
+        mcodebox : {
+            width:'100vw',
+            height:'auto',
+            background: type.top_bar,
+            padding:'30px',
+            borderRight :`solid 1px ${type.line}`,
+            ...dfb,
+            flexDirection: 'column',
+            overflowY: 'auto',
+            order:'2'
+        },
         viewbox : {
             width:'calc(100vw - 410px)',
+            ...df,
+            height:'100%',
+            overflowY:'auto'
+        },
+        mviewbox : {
+            width:'100vw',
             ...df,
             height:'100%'
         },
@@ -175,6 +192,13 @@ export function a(type=dark){
             ...dfb,
             overflow:'hidden',
             height:'100%'
+        },
+        msubpage : {
+            ...dfs,
+            overflowY:'auto',
+            height:'calc(100% - 100px)',
+            flexDirection: 'column',
+            overflowX:'hidden'
         },
         build : {
             textAlign: 'center',
@@ -202,7 +226,7 @@ export function a(type=dark){
 
         },
         profiled : {
-            ...dfa,
+            ...dfs,
             flexDirection: 'column',
             height:'100%',
             width:'100%'
@@ -219,7 +243,6 @@ export function a(type=dark){
         skilldetail : {
             padding:'20px',
             overflowY:'auto',
-            height:'400px'
         },
         skillradius : {
             color : type.btn,
@@ -237,6 +260,13 @@ export function a(type=dark){
         skbg : {
             background: type.btn,
             width : '400px',
+            height:'30px',
+            borderRadius :'30px',
+            overflow:'hidden'
+        },
+        mskbg : {
+            background: type.btn,
+            width : '100%',
             height:'30px',
             borderRadius :'30px',
             overflow:'hidden'
@@ -287,6 +317,9 @@ export function a(type=dark){
         adminheader : {
             background:type.top_bar,
             ...df
+        },
+        mfg :{
+            width:'100%'
         }
     }
     return style;

@@ -31,18 +31,24 @@ export default function Lim({display,cf}) {
 
 
   return (
-    <div style={style.subpage}>
-      <section style={style.codebox}>
-        <div>
-            <p> <span style={style.code}>const</span> <span style={style.var}>Name</span> <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.name}</span>" </p>
-            <p> <span style={style.code}>const</span> NickName <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.nickname}</span>" </p>
-            <p> <span style={style.code}>const</span> Phone <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.phone}</span>" </p>
-            <p> <span style={style.code}>let</span> Skill <span style={style.codebu}>=</span> <span style={style.codear}>[</span> <Skil /> <span style={style.codear}>]</span> </p>
-            <p> <span style={style.code}>const</span> Summary <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.summary}</span>"</p>
-        </div>
-        <button style={style.mainBtn}  onClick={build}>Build</button>
-      </section>
-      <section style={style.viewbox}>
+    <div style={display == 'pc' ? style.subpage : style.msubpage}>
+      {
+        display == 'pc' || (display == 'mobile' && !buding) ?
+          <section style={display == 'pc' ? style.codebox : style.mcodebox}>
+            <div>
+                <p> <span style={style.code}>const</span> <span style={style.var}>Name</span> <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.name}</span>" </p>
+                <p> <span style={style.code}>const</span> NickName <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.nickname}</span>" </p>
+                <p> <span style={style.code}>const</span> Phone <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.phone}</span>" </p>
+                <p> <span style={style.code}>let</span> Skill <span style={style.codebu}>=</span> <span style={style.codear}>[</span> <Skil /> <span style={style.codear}>]</span> </p>
+                <p> <span style={style.code}>const</span> Summary <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.summary}</span>"</p>
+            </div>
+            <button style={style.mainBtn}  onClick={build}>Build</button>
+          </section>
+      :
+      ''
+      }
+      
+      <section style={display == 'pc' ? style.viewbox : style.mviewbox}>
         {
           !bd ?
           <h1 style={style.build}>Please click Build</h1>
@@ -66,7 +72,7 @@ export default function Lim({display,cf}) {
                 <p>{cf[0]?.summary}</p>
               </section>
             </section>
-            <Profileskill />
+            <Profileskill display={display} />
           </div>
         }
       </section>

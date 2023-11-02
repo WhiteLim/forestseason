@@ -7,6 +7,7 @@ export default function Mainbtn({children,setPage}) {
         case 'White Lim' : setPage('lim'); break;
         case 'Protfolio' : setPage('pr'); break;
         case 'Blog' : setPage('blog'); break;
+        case 'View lim code' : setPage('lim'); break;
       }
     }
   return <button onClick={change} style={style.mainBtn}> {children} </button>

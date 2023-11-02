@@ -1,6 +1,6 @@
 import { qe } from '../db';
 export async function GET() {
-    let data = await qe('SELECT * from portfolio');
+    let data = await qe('SELECT * from portfolio order by num desc');
     return Response.json(data);
 }
 

@@ -47,21 +47,18 @@ export default function Pr() {
       formdata.append('num',write)
     }
     let send = Object.fromEntries(formdata);
-    const fr = new FileReader(); // 업로드 이미지 리드
-    fr.readAsDataURL(send.upload); // url 서치
-      // axios.post('/api/upload/files', {
-      //     title:obj.title,
-      //     imgUrl:fr.result
-      // });
-
 
     if(write == 'new') {
+      const fr = new FileReader(); // 업로드 이미지 리드
+      fr.readAsDataURL(send.upload); // url 서치
+
       fr.addEventListener('load',()=>{ // 로드 된 후 실행
         axios.post('/api/portfolio',{
           title:send.title,
           useskill:send.useskill,
           url:send.url,
           workdate:send.workdate,
+          work:send.work,
           team:send.team,
           info:send.info,
           img:fr.result,
@@ -141,7 +138,7 @@ export default function Pr() {
           <p>workdate</p><input type='text' name='workdate'  value={workdate} onChange={(e)=>{setWorkdate(e.target.value)}} style={{...style.modebtn,width:'100%'}} />
           <p>team</p><input type='text' name='team' value={team} onChange={(e)=>{setTeam(e.target.value)}} style={{...style.modebtn,width:'100%'}} />
           <p>info</p><input type='text' name='info' value={info} onChange={(e)=>{setInfo(e.target.value)}} style={{...style.modebtn,width:'100%'}} />
-          <input type="file" name="upload" style={{width:'100%', margin:'20px 0'}}/>
+          { write == 'new' ? <input type="file" name="upload" style={{width:'100%', margin:'20px 0'}}/> : '' }
           <input type='submit' value='Save' style={{...style.modebtn,width:'50%',marginTop:'20px'}} />
           <input type='button' value='Cancle' onClick={close} style={{...style.modebtn,width:'50%',marginTop:'20px'}} />
         </form>
