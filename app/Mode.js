@@ -8,8 +8,8 @@ import Pr from "./page/Pr";
 import Blog from "./page/Blog";
 import {light,dark} from './color_config'
 import {style,a} from './components/Style'
-// import {data,Config} from './call/Config'
 import Admin from "./page/Admin";
+import axios from "axios";
 
 export default function Mode() {
     const [ cf , setCf ] = useState();
@@ -24,18 +24,8 @@ export default function Mode() {
     }
     useEffect(()=>{a( mode == light ? light : dark ); setClassName(mode == light ? 'light' : 'dark' ) },[mode])
     async function callcf() {
-        // let type = false;
-        // const a = setInterval(() => {
-        //     if(type === false) {
-        //         setCf(data.data)
-        //     }
-        //     if(cf) {
-        //         clearInterval(a);
-        //         type = true;
-        //     }
-        // });
-        data = await axios.get('../api/config/')
-        setCf(data.data)
+        await axios.get('../api/config/')
+        .then(res => setCf(res.data))
     }
     useEffect(()=>{
         callcf();

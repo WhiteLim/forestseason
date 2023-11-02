@@ -2,7 +2,7 @@ import axios from 'axios'
 import {style} from '../../components/Style'
 import React, { useState } from 'react'
 
-export default function Conf({cf}) {
+export default function Conf({cf,setCf}) {
     const [ state, setState ] = useState(false);
     const [name,setName] = useState(cf[0]?.name)
     const [nickname,setNickname] = useState(cf[0]?.nickname)

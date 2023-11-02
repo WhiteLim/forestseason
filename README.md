@@ -33,9 +33,13 @@ test        테스트 코드를 추가하거나 기존 테스트 코드를 수�
 # Troubleshooting 
 ```
 1. Style.js 컴포넌트 분리 작업 (실시간 적용 오류 문제 발생) 
- └─ Pr. 각 페이지별 모드 별 랜더링 안되는 현상 / Solve. 각 페이지별 모드 변경시 useState로 값 변경으로 치환
+   └─ Pr. 각 페이지별 모드 별 랜더링 안되는 현상 / Solve. 각 페이지별 모드 변경시 useState로 값 변경으로 치환
 2. Light/ Dark 모드 값 유지 이슈
- └─ localStorage 사용으로 초기값을 light로 지정 이후 모드 변경시 localStorage에 모드 값 저장 후 컬러값 전체 변경
+   └─ localStorage 사용으로 초기값을 light로 지정 이후 모드 변경시 localStorage에 모드 값 저장 후 컬러값 전체 변경
+3. Config 파일 컴포넌트형식으로 data 처리 오류
+   └─ Mode.js 자체에서 axios로 데이터 호출 및 admin 페이지에서 setCf로 data 최신화 설정 변경
+4. 이미지 Base64 변환 시 서버 500 err로 인해 DB 저장 불가 현상
+   └─ 오라클 자체 접근 차단으로 확인, 능력의 한계로 인해 썸네일 형식으로 저용량으로 진행
 ```
 
 본 사이트는 [노션](https://www.notion.so/wh-pf/White-lim-Portfolio-32cc6df132924daa9fc6a84d2c324394?pvs=4), [피그마](https://www.figma.com/file/oRD3RO6wSxDyf6KeLGedNT/White-Forest?type=design&node-id=0%3A1&mode=design&t=zUQrERcn7wXtvjO8-1)로 기획하여 제작 하였습니다.

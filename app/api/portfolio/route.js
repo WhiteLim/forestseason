@@ -14,6 +14,7 @@ export async function POST(req) {
     workdate='${is.workdate}',
     team='${is.team}',
     info='${is.info}',
+    img='${is.img}',
     date='${is.date}'
     `)
     let data = await qe('SELECT * from portfolio');
@@ -33,6 +34,14 @@ export async function PUT(req) {
     date='${is.date}'
     where num = '${Number(is.num)}'
     `)
+    let data = await qe('SELECT * from portfolio');
+    return Response.json(data);
+}
+
+export async function DELETE(req) {
+    const is = req.nextUrl.searchParams.get('num')
+    await qe(`delete from portfolio where num = '${is}' `); 
+
     let data = await qe('SELECT * from portfolio');
     return Response.json(data);
 }

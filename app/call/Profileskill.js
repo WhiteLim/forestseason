@@ -1,3 +1,4 @@
+"use client"
 import React, { useEffect, useState } from 'react'
 import {style} from '../components/Style'
 import axios from 'axios';
@@ -5,12 +6,17 @@ import axios from 'axios';
 export default function Profileskill() {
     const [skill, setSkill] = useState();
     const [myskillD, setMyskillD] = useState(0)
+    const [pr, setPr] = useState()
     useEffect(()=>{
         axios.get('./api/skill')
         .then(res=> setSkill(res.data))
     },[])
 
-    const set = (k)=>{ setMyskillD(k) }
+    const set = (k)=>{ 
+      setMyskillD(k);
+      axios.get(`./api/skill/detail?num=${k+1}`)
+      .then(res=>setPr(res.data))
+    }
 
     if(!skill) return <></>
     return (
@@ -32,7 +38,11 @@ export default function Profileskill() {
             </figure>
             <h1>Project</h1>
             <ul>
-              <li></li>
+              {
+                pr?.map(v=>(
+                  <li key={v.num}><img src={v.img} style={{width:'200px'}} /> {v.title} </li>
+                ))
+              }
             </ul>
           </div>
         </section>

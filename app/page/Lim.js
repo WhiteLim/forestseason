@@ -60,7 +60,9 @@ export default function Lim({display,cf}) {
                 <img style={style.imgsize} src="/image/lim.jpg" alt='profile img'/>
               </figure>
               <section style={style.profile}>
-                <p>😎 {cf[0]?.name} [ {cf[0]?.phone} ]</p>
+                  <p>Name : {cf[0]?.name} [ {cf[0]?.phone} ]</p>
+                  <p>Career : 프리랜서[PHP+퍼블리싱+DB & 카페24 & 고도몰] 8년 | React/Next 신입</p>
+                  <p>Use Skill : <Skil /></p>
                 <p>{cf[0]?.summary}</p>
               </section>
             </section>

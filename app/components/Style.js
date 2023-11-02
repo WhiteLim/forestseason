@@ -217,7 +217,9 @@ export function a(type=dark){
             width:'100%'
         },
         skilldetail : {
-            padding:'20px'
+            padding:'20px',
+            overflowY:'auto',
+            height:'400px'
         },
         skillradius : {
             color : type.btn,
