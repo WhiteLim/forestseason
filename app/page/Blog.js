@@ -12,7 +12,7 @@ export default function Blog({display,mode}) {
   const [title, setTitle] = useState();
   const [contents, setContents] = useState();
   useEffect(()=>{
-    axios.get('/api/blog/l')
+    axios.post('/api/blog/l')
     .then(res=>setList(res.data))
   },[])
 
