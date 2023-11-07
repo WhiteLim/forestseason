@@ -4,14 +4,20 @@ import {style} from '../components/Style'
 import {light,dark} from '../color_config'
 import axios from 'axios';
 
-export default function Pr({display,mode}) {
+export default function Pr({display,mode,url,setUrl,vnum}) {
   const [modeName, setModeName] = useState('d_')
   const [pr,setPr] = useState();
-  const [url,setUrl] = useState();
   const setction = useRef([])
   useEffect(()=>{
     axios.get('/api/portfolio')
     .then(res=>setPr(res.data))
+    if(url){
+      setTimeout(() => {
+        setction.current.forEach((v,z)=>{
+          z == vnum ? v.style = style.lisetworkactive : v.style = 'display:none'
+        })
+      },500);
+    }
   },[])
 
   useEffect(()=>{ setModeName(mode == light ? 'l_' : 'd_' ) },[mode])
@@ -32,8 +38,8 @@ export default function Pr({display,mode}) {
             {
               pr.map((v,k)=>(
                 <div key={k}>
-                  <p key={v.num} onClick={()=>{view(v.url,k)}} style={style.list}><img src={`./image/icon/${modeName}dir.png`} /> {v.title} </p>
-                  <section style={style.listwork} ref={(e)=>{setction.current[k] = e}}>
+                  <p key={v.num} onClick={()=>{view(v.url,v.num)}} style={style.list}><img src={`./image/icon/${modeName}dir.png`} /> {v.title} </p>
+                  <section style={style.listwork} ref={(e)=>{setction.current[v.num] = e}}>
                     <p><span style={style.code}>Work</span> : {v.work}</p>
                     <p><span style={style.code}>Work Date</span> : {v.workdate}</p>
                     <p><span style={style.code}>Team</span> : {v.team}</p>

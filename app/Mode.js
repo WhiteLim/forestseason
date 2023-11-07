@@ -17,6 +17,14 @@ export default function Mode() {
     const [display,setDisplay] = useState('pc');
     const [page,setPage] = useState('home');
     const [className,setClassName] = useState('light')
+
+    const [url,setUrl] = useState();
+    const [vnum,setVnum] = useState();
+
+    const [title, setTitle] = useState();
+    const [contents, setContents] = useState();
+    const [ca, setCa] = useState();
+
     const modeChang = ()=>{ 
         let item = mode == light ? 'dark' : 'light';
         localStorage.setItem('mode',item)
@@ -50,10 +58,10 @@ export default function Mode() {
             <Header mode={mode} setPage={setPage} modeChang={modeChang} />
             <main style={display == 'pc' ? style.main : style.mmain} >
                 {
-                    page == 'home' ? <Home mode={mode} display={display} setPage={setPage} cf={cf}  />
+                    page == 'home' ? <Home mode={mode} display={display} setPage={setPage} cf={cf} setUrl={setUrl} setVnum={setVnum} setTitle={setTitle} setContents={setContents} setCa={setCa} />
                     : page == 'lim' ? <Lim display={display} cf={cf} />
-                    : page == 'pr' ? <Pr display={display} mode={mode} />
-                    : page == 'blog' ? <Blog display={display} mode={mode} /> : <Admin cf={cf} setCf={setCf}/>
+                    : page == 'pr' ? <Pr display={display} mode={mode} setUrl={setUrl} url={url} vnum={vnum} />
+                    : page == 'blog' ? <Blog display={display} setUrl={setUrl} url={url} setTitle={setTitle} title={title} setContents={setContents} contents={contents} setCa={setCa} ca={ca} /> : <Admin cf={cf} setCf={setCf}/>
                 }
             </main>
             <Footer mode={mode} page={page} setPage={setPage} display={display} />

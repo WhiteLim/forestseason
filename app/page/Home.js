@@ -7,18 +7,31 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import axios from 'axios'
 
-export default function Home({mode,setPage,display,cf}) {
+export default function Home({mode,setPage,display,cf,setUrl,setVnum,setTitle,setContents,setCa}) {
   const move = (url)=>{ window.open(url) }
   const [pr, setPr] = useState()
+  const [list, setList] = useState()
   const [modeName,setName] = useState('l_');
   useEffect(()=>{setName(mode == light ? 'l_' : 'd_' )},[mode])
   useEffect(()=>{
-    axios.get('./api/portfolio')
-    .then(res=> setPr(res.data))
+    axios.get('./api/portfolio').then(res=> setPr(res.data))
+    axios.post('./api/blog/l').then(res=>setList(res.data))
   },[])
-  if(!cf) return <></>
+  const prmove = (url,k) => {
+    setPage('pr');
+    setUrl(url)
+    setVnum(k)
+  }
+  const blmove = (url,title,contents,category) => {
+    setUrl(url);
+    setTitle(title);
+    setContents(contents);
+    setCa(category)
+    setPage('blog');
+  }
+  if(!cf || !list || !pr) return <></>
   return (
-    <div style={display == 'pc' ? style.section : style.msection}>
+    <div style={display == 'pc' ? {...style.section,marginTop:'100px'} : style.msection}>
       <div>
         <h1 style={style.textcenter}>{cf[0]?.title}</h1>
         <figure style={display == 'pc' ? style.firadius : style.mfiradius}>
@@ -41,18 +54,25 @@ export default function Home({mode,setPage,display,cf}) {
         <div style={display == 'pc' ? {width:'890px'} : style.mfg}>
             <Swiper
             spaceBetween={50}
-            slidesPerView={5}
+            slidesPerView={4.5}
              >
               {
                 pr?.map(v=>(
                   <SwiperSlide key={v.num}>
-                    <img src={v.img} style={{width:'100%', height:'100%'}} /><p> {v.title}</p>
+                    <img src={v.img} style={{width:'100%', height:'100%'}} onClick={()=>{ prmove(v.url,v.num) }} /><p> {v.title}</p>
                   </SwiperSlide>
                 ))
               }
             </Swiper>
         </div>
         <h1>My Blog</h1>
+        <div style={display == 'pc' ? {width:'890px',marginBottom:'50px'} : {...style.mfg,marginBottom:'50px'}}>
+            {
+              list.slice(0,5).map(v=>(
+                <p style={{...style.list,...style.bottom,padding:'10px 0'}} onClick={()=>{blmove(v.num,v.title,v.contents,v.category)}} >{v.title}</p>
+              ))
+            }
+        </div>
       </div>
     </div>
   )

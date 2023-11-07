@@ -19,6 +19,8 @@ export function a(type=dark){
         dfs : {...dfb, flexDirection: 'column', height:'100%'},
         dff : {...df},
         dfc : {...dfonly, flexDirection: 'column', gap:'30px'},
+        font : {fontFamily : noto.style.fontFamily},
+        bottom : {borderBottom : `1px solid ${type.line}`},
         body : {
             background : type.background,
             color : type.font_color,

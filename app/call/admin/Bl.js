@@ -83,11 +83,11 @@ export default function Bl() {
         <div style={state == false ? style.alert : style.alert_active}>
         <form onSubmit={save}>
           <select name='category'>
-            <option value='next'>Next</option>
-            <option value='react'>React</option>
+            <option value='Next'>Next</option>
+            <option value='React'>React</option>
             <option value='Vue'>Vue</option>
-            <option value='sql'>Sql</option>
-            <option value='other'>HTML & Script & CSS</option>
+            <option value='Sql'>Sql</option>
+            <option value='Other'>Other</option>
           </select>
           <input type='text' name='title' value={title} onChange={(e)=>{setTitle(e.target.value)}} style={{...style.modebtn,width:'100%'}}  />
           <Editor value={contents}  setContents ={setContents} />

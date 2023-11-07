@@ -4,6 +4,7 @@ export async function POST(req) {
     const is = await req.json();
     await qe(`insert into blog set
     title="${is.title}",
+    date="${is.date}",
     contents="${String(is.contents)}",
     category='${is.category}'
     `)
