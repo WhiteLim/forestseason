@@ -55,7 +55,7 @@ export default function Mode() {
      },[])
     return (
         <body style={style.body} className={className}>
-            <Header mode={mode} setPage={setPage} modeChang={modeChang} />
+            <Header mode={mode} setPage={setPage} modeChang={modeChang} display={display}/>
             <main style={display == 'pc' ? style.main : style.mmain} >
                 {
                     page == 'home' ? <Home mode={mode} display={display} setPage={setPage} cf={cf} setUrl={setUrl} setVnum={setVnum} setTitle={setTitle} setContents={setContents} setCa={setCa} />
@@ -64,7 +64,7 @@ export default function Mode() {
                     : page == 'blog' ? <Blog display={display} setUrl={setUrl} url={url} setTitle={setTitle} title={title} setContents={setContents} contents={contents} setCa={setCa} ca={ca} /> : <Admin cf={cf} setCf={setCf}/>
                 }
             </main>
-            <Footer mode={mode} page={page} setPage={setPage} display={display} />
+            <Footer mode={mode} page={page} setPage={setPage} display={display} modeChang={modeChang} />
         </body>
     )
 }

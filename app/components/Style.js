@@ -61,6 +61,13 @@ export function a(type=dark){
             fontSize : '20px',
             fontWeight : '700'
         },
+        mheader_p : {
+            color : type.font_color,
+            fontFamily : noto.style.fontFamily,
+            fontSize : '14px',
+            fontWeight : '700',
+            textAlign :'right'
+        },
         modebtn : {
             background : type.mode_btn,
             color : type.mode_color,
@@ -71,6 +78,15 @@ export function a(type=dark){
             height : '45px',
             borderRadius :  '10px',
             cursor: 'pointer'
+        },
+        fomo : {
+            background : type.mode_btn,
+            color : type.mode_color,
+            border : '0',
+            fontFamily : noto.style.fontFamily,
+            fontWeight : '700',
+            width:'45px', height:'45px', borderRadius :  '50%',
+            ...df
         },
         btnbox : {
             ...df
