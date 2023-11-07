@@ -42,7 +42,8 @@ export function a(type=dark){
         mmain : {
             ...dfss,
             width:'100%',
-            height:'calc(100vh - 100px)'
+            height:'calc(100vh - 200px)',
+            overflowY:'auto'
         },
         header_box : {
             top:0,
@@ -96,8 +97,6 @@ export function a(type=dark){
             flexDirection: 'column', 
             minHeight:'850px',
             width:'100%',
-            overflowY:'auto',
-            height:'calc(100vh - 205px)',
             padding:'30px'
         },
         mainBtn : {
@@ -121,7 +120,8 @@ export function a(type=dark){
             flexDirection: 'column',
             ...dfs,
             gap :'46px',
-            paddingTop :'30px'
+            paddingTop :'30px',
+            zIndex:'3'
         },
         mfootbox : {
             position:'fixed',
@@ -133,7 +133,8 @@ export function a(type=dark){
             gap :'46px',
             padding :'30px 0',
             cursor: 'pointer',
-            bottom:'0'
+            bottom:'0',
+            zIndex:'3'
         },
         firadius : {
             ...dfb,

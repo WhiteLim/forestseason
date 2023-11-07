@@ -53,8 +53,14 @@ export default function Home({mode,setPage,display,cf,setUrl,setVnum,setTitle,se
         <h1>My Portfolio</h1>
         <div style={display == 'pc' ? {width:'890px'} : style.mfg}>
             <Swiper
-            spaceBetween={50}
-            slidesPerView={4.5}
+            spaceBetween={20}
+            slidesPerView={1.5}
+            breakpoints={{
+              800: {
+                slidesPerView: 4.5,  //브라우저가 768보다 클 때
+                spaceBetween: 40,
+              },
+            }}
              >
               {
                 pr?.map(v=>(
