@@ -53,7 +53,7 @@ export default function Mode() {
                     page == 'home' ? <Home mode={mode} display={display} setPage={setPage} cf={cf}  />
                     : page == 'lim' ? <Lim display={display} cf={cf} />
                     : page == 'pr' ? <Pr display={display} mode={mode} />
-                    : page == 'blog' ? <Blog display={display} /> : <Admin cf={cf} setCf={setCf}/>
+                    : page == 'blog' ? <Blog display={display} mode={mode} /> : <Admin cf={cf} setCf={setCf}/>
                 }
             </main>
             <Footer mode={mode} page={page} setPage={setPage} display={display} />

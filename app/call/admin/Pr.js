@@ -106,15 +106,15 @@ export default function Pr() {
   if(!pr || !skill) return <></>
   return (
     <div>
-      <div>
+      <div style={{...style.dff, justifyContent : 'flex-start', alignItems: 'center', gap:'10px'}}>
         <h1>Portfolio [ {pr.length}개 ]</h1>
-        <button onClick={()=>{newwrite('new')}}>글 작성</button>
+        <button onClick={()=>{newwrite('new')}} style={style.btn}>글 작성</button>
       </div>
-      <ul>
+      <ul style={{...style.dfc, alignItems : 'flex-start'}}>
         {
           pr.map((v,k)=>(
             <li key={v.num}>
-              {v.title} <button onClick={()=>{newwrite(v.num)}}>수정</button> <button onClick={()=>{del(v.num)}}>삭제</button>
+              ㄴ {v.title} <button onClick={()=>{newwrite(v.num)}} style={style.btn}>수정</button> <button style={style.btn} onClick={()=>{del(v.num)}}>삭제</button>
             </li>
           ))
         }

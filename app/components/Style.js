@@ -25,6 +25,11 @@ export function a(type=dark){
             fontFamily : noto.style.fontFamily,
             overflow:'hidden'
         },
+        nomal : {
+            width: '100%',
+            height: '100%',
+            overflowY:'auto'
+        },
         main : {
             marginLeft : '70px',
             marginTop:'100px',
@@ -320,6 +325,27 @@ export function a(type=dark){
         },
         mfg :{
             width:'100%'
+        },
+        list : {
+            ...dfs,
+            fontSize:'16px',
+            lineHeight:'1.6',
+            gap:'10px',
+            margin:'20px 0',
+            cursor:'pointer'
+        },
+        listwork : {
+            display:'none'
+        },
+        lisetworkactive : {
+            display:'block'
+        },
+        btn : {
+            background : type.btn,
+            color: type.font_color,
+            padding : '5px 10px',
+            border : '0',
+            borderRadius : '10px'
         }
     }
     return style;
