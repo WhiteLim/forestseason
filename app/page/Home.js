@@ -31,7 +31,7 @@ export default function Home({mode,setPage,display,cf,setUrl,setVnum,setTitle,se
   }
   if(!cf || !list || !pr) return <></>
   return (
-    <div style={display == 'pc' ? {...style.section,marginTop:'100px'} : style.msection}>
+    <div style={display == 'pc' ? style.section : style.msection}>
       <div>
         <h1 style={style.textcenter}>{cf[0]?.title}</h1>
         <figure style={display == 'pc' ? style.firadius : style.mfiradius}>
@@ -69,7 +69,7 @@ export default function Home({mode,setPage,display,cf,setUrl,setVnum,setTitle,se
         <div style={display == 'pc' ? {width:'890px',marginBottom:'50px'} : {...style.mfg,marginBottom:'50px'}}>
             {
               list.slice(0,5).map(v=>(
-                <p style={{...style.list,...style.bottom,padding:'10px 0'}} onClick={()=>{blmove(v.num,v.title,v.contents,v.category)}} >{v.title}</p>
+                <p key={v.num} style={{...style.list,...style.bottom,padding:'10px 0'}} onClick={()=>{blmove(v.num,v.title,v.contents,v.category)}} >{v.title}</p>
               ))
             }
         </div>

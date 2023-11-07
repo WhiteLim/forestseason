@@ -6,6 +6,7 @@ const dfb = {display:'flex',justifyContent : 'space-between',alignItems: 'center
 const dfa = {display:'flex',justifyContent : 'space-around',alignItems: 'center'}
 const dfs = {display:'flex',justifyContent : 'flex-start',alignItems: 'center'}
 const dfss = {display:'flex',justifyContent : 'flex-start',alignItems: 'flex-start'}
+const dfbs = {display:'flex',justifyContent : 'center',alignItems: 'flex-start'}
 const dfonly = {display:'flex'}
 var style = a();
 export function a(type=dark){
@@ -34,13 +35,11 @@ export function a(type=dark){
         },
         main : {
             marginLeft : '70px',
-            marginTop:'100px',
-            ...df,
+            ...dfbs,
             overflowY:'auto',
             height:'calc(100vh - 100px)'
         },
         mmain : {
-            marginTop:'100px',
             ...dfss,
             width:'100%',
             height:'calc(100vh - 100px)'
@@ -50,7 +49,7 @@ export function a(type=dark){
             width:'100%',
             height:'100px',
             padding:'20px',
-            position:'fixed',
+            position:'sticky',
             ...dfb,
             background: type.top_bar,
             borderBottom : `1px solid ${type.line}`
