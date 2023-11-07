@@ -12,7 +12,7 @@ export default function Bl() {
   const [ contents, setContents ] = useState();
   const [ write, setWrite ] = useState();
 
-  useEffect(()=>{ axios.get('/api/blog/l').then(res=>setPr(res.data));},[])
+  useEffect(()=>{ axios.post('/api/blog/l').then(res=>setPr(res.data));},[])
 
   const newwrite = (k)=>{ setState(true); setWrite(k); }
   const del = (k)=> {
