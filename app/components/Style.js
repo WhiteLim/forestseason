@@ -191,15 +191,14 @@ export function a(type=dark){
         },
         mcodebox : {
             width:'100vw',
-            height:'auto',
+            height:'30%',
             background: type.top_bar,
             padding:'30px',
             borderRight :`solid 1px ${type.line}`,
-            ...dfb,
+            ...dfss,
             flexDirection: 'column',
             overflowY: 'auto',
-            order:'2',
-            height:'30vh'
+            order:'2'
         },
         viewbox : {
             width:'calc(100vw - 410px)',
@@ -210,7 +209,7 @@ export function a(type=dark){
         mviewbox : {
             width:'100vw',
             ...df,
-            height:'50vh'
+            height:'70%'
         },
         subpage : {
             ...dfb,
