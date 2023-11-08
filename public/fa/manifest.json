@@ -1,0 +1,35 @@
+{
+ "short_name": "Whitelim Portofolio",
+ "name": "Next Forestseason - Whitelim Portofolio",
+ "display": "fullscreen",
+ "start_url": "/",
+ "id": "/",
+ "scope": "/",
+ "icons": [
+  {
+    "src": "/fa/favicon-96x96.png",
+    "sizes": "96x96",
+    "type": "image/png"
+  },
+  {
+    "src": "/fa/favicon-32x32.png",
+    "sizes": "32x32",
+    "type": "image/png"
+  },
+  {
+    "src": "/fa/favicon-16x16.png",
+    "sizes": "16x16",
+    "type": "image/png"
+  },
+  {
+    "src": "/fa/android-icon-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "/fa/android-icon-144x144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  }
+ ]
+}
