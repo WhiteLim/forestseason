@@ -51,12 +51,15 @@ export default function Pr({display,mode,url,setUrl,vnum}) {
             }
           </div>
       </section>
+      {display == 'pc' ?
       <section style={display == 'pc' ? style.viewbox : style.mviewbox}>
         {
-          !url ? <h1 style={display == 'pc' ? style.build : {...style.build,fontSize:'18px'}}>Please click Portfolio</h1> : display == 'pc' ? <iframe src={url} /> : ''
+          !url ? <h1 style={display == 'pc' ? style.build : {...style.build,fontSize:'18px'}}>Please click Portfolio</h1> : <iframe src={url} />
         }
         
       </section>
+      : ''
+      }
     </div>
   )
 }
