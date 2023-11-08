@@ -209,7 +209,7 @@ export function a(type=dark){
         mviewbox : {
             width:'100vw',
             ...df,
-            height:'60vh'
+            height:'50vh'
         },
         subpage : {
             ...dfb,
