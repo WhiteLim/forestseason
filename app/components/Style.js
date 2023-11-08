@@ -198,7 +198,8 @@ export function a(type=dark){
             ...dfb,
             flexDirection: 'column',
             overflowY: 'auto',
-            order:'2'
+            order:'2',
+            height:'30vh'
         },
         viewbox : {
             width:'calc(100vw - 410px)',
