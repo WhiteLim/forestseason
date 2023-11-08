@@ -140,7 +140,7 @@ export function a(type=dark){
             zIndex:'3'
         },
         mfootbox : {
-            position:'fixed',
+            position:'sticky',
             background : type.top_bar,
             borderRight : `1px solid ${type.line}`,
             width:'100%',
