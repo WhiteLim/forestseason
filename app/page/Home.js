@@ -6,6 +6,7 @@ import Skil from '../call/Skil'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import axios from 'axios'
+import Loadding from '../call/Loadding'
 
 export default function Home({mode,setPage,display,cf,setUrl,setVnum,setTitle,setContents,setCa}) {
   const move = (url)=>{ window.open(url) }
@@ -29,7 +30,7 @@ export default function Home({mode,setPage,display,cf,setUrl,setVnum,setTitle,se
     setCa(category)
     setPage('blog');
   }
-  if(!cf || !list || !pr) return <></>
+  if(!cf || !list || !pr) return <Loadding />
   return (
     <div style={display == 'pc' ? style.section : style.msection}>
       <div>

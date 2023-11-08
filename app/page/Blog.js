@@ -4,6 +4,7 @@ import axios from 'axios';
 import MDEditor from '@uiw/react-md-editor';
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
+import Loadding from '../call/Loadding';
 
 export default function Blog({display,setUrl,url,setTitle,title,setContents,contents,setCa,ca}) {
   const [modeName, setModeName] = useState('d_')
@@ -38,7 +39,7 @@ export default function Blog({display,setUrl,url,setTitle,title,setContents,cont
     })
   }
 
-  if(!list) return <></>
+  if(!list) return <Loadding />
   return (
     <div style={display == 'pc' ? style.subpage : style.msubpage}>
       <section style={display == 'pc' ? style.codebox : style.mcodebox}>
@@ -65,7 +66,7 @@ export default function Blog({display,setUrl,url,setTitle,title,setContents,cont
       </section>
       <section style={display == 'pc' ? style.viewbox : style.mviewbox}>
       {
-          !url ? <h1 style={style.build}>Please click Item</h1> : 
+          !url ? <h1 style={display == 'pc' ? style.build : {...style.build,fontSize:'18px'}}>Please click Item</h1> : 
           <div style={style.nomal}>
             <h1 style={{padding:'10px'}}>[{ca}] {title}</h1>
             <MDEditor.Markdown source={contents} style={{...style.font, whiteSpace: 'pre-wrap', padding:'40px' }} />

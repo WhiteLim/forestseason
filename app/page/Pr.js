@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import {style} from '../components/Style'
 import {light,dark} from '../color_config'
 import axios from 'axios';
+import Loadding from '../call/Loadding';
 
 export default function Pr({display,mode,url,setUrl,vnum}) {
   const [modeName, setModeName] = useState('d_')
@@ -29,7 +30,7 @@ export default function Pr({display,mode,url,setUrl,vnum}) {
     })
   }
 
-  if(!pr) return <></>
+  if(!pr) return <Loadding />
 
   return (
     <div style={display == 'pc' ? style.subpage : style.msubpage}>
@@ -51,7 +52,7 @@ export default function Pr({display,mode,url,setUrl,vnum}) {
       </section>
       <section style={display == 'pc' ? style.viewbox : style.mviewbox}>
         {
-          !url ? <h1 style={style.build}>Please click Portfolio</h1> : <iframe src={url} />
+          !url ? <h1 style={display == 'pc' ? style.build : {...style.build,fontSize:'18px'}}>Please click Portfolio</h1> : <iframe src={url} />
         }
         
       </section>
