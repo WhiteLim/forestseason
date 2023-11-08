@@ -42,8 +42,14 @@ export default function Profileskill(display) {
             </figure>
             <h1>Project</h1>
             <Swiper
-            spaceBetween={50}
-            slidesPerView={5}
+            spaceBetween={20}
+            slidesPerView={1.5}
+            breakpoints={{
+              800: {
+                slidesPerView: 4.5,  //브라우저가 768보다 클 때
+                spaceBetween: 40,
+              },
+            }}
              >
               {
                 pr?.map(v=>(

@@ -209,7 +209,7 @@ export function a(type=dark){
         mviewbox : {
             width:'100vw',
             ...df,
-            height:'100%'
+            height:'60vh'
         },
         subpage : {
             ...dfb,
@@ -217,9 +217,8 @@ export function a(type=dark){
             height:'100%'
         },
         msubpage : {
-            ...dfs,
+            ...dfb,
             overflowY:'auto',
-            height:'calc(100% - 100px)',
             flexDirection: 'column',
             overflowX:'hidden'
         },

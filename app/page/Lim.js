@@ -35,23 +35,23 @@ export default function Lim({display,cf}) {
       {
         display == 'pc' || (display == 'mobile' && !buding) ?
           <section style={display == 'pc' ? style.codebox : style.mcodebox}>
-            <div>
+            <div style={display == 'pc' ? {} : {oder:'2'} }>
                 <p> <span style={style.code}>const</span> <span style={style.var}>Name</span> <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.name}</span>" </p>
                 <p> <span style={style.code}>const</span> NickName <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.nickname}</span>" </p>
                 <p> <span style={style.code}>const</span> Phone <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.phone}</span>" </p>
                 <p> <span style={style.code}>let</span> Skill <span style={style.codebu}>=</span> <span style={style.codear}>[</span> <Skil /> <span style={style.codear}>]</span> </p>
                 <p> <span style={style.code}>const</span> Summary <span style={style.codebu}>=</span> "<span style={style.codeText}>{cf[0]?.summary}</span>"</p>
             </div>
-            <button style={style.mainBtn}  onClick={build}>Build</button>
+            <button style={display == 'pc' ? style.mainBtn : {...style.mainBtn,order:'1'}}  onClick={build}>Build</button>
           </section>
       :
       ''
       }
       
-      <section style={display == 'pc' ? style.viewbox : style.mviewbox}>
+      <section style={display == 'pc' ? style.viewbox : buding ? {...style.mviewbox,height:'100%'} : style.mviewbox}>
         {
           !bd ?
-          <h1 style={style.build}>Please click Build</h1>
+          <h1 style={display == 'pc' ? style.build : {...style.build,fontSize:'18px'}}>Please click Build</h1>
           :
           !buding ? 
           <div>

@@ -33,7 +33,7 @@ export default function Home({mode,setPage,display,cf,setUrl,setVnum,setTitle,se
   return (
     <div style={display == 'pc' ? style.section : style.msection}>
       <div>
-        <h1 style={style.textcenter}>{cf[0]?.title}</h1>
+        <h1 style={display == 'pc' ? style.textcenter : {...style.textcenter,fontSize:'18px'}}>{cf[0]?.title}</h1>
         <figure style={display == 'pc' ? style.firadius : style.mfiradius}>
           <img style={style.imgsize} src="/image/lim.jpg" alt='profile img'/>
           <figcaption style={display == 'pc' ? style.boxsize : style.mwidht}>
