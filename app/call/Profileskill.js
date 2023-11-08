@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
-export default function Profileskill(display) {
+export default function Profileskill(display,setPage,setUrl,setVnum) {
     const [skill, setSkill] = useState();
     const [myskillD, setMyskillD] = useState(0)
     const [pr, setPr] = useState()
@@ -15,6 +15,12 @@ export default function Profileskill(display) {
         axios.get(`./api/skill/detail?num=1`)
         .then(res=>setPr(res.data))
     },[])
+
+    const prmove = (url,k) => {
+      setPage('pr')
+      setUrl(url)
+      setVnum(k)
+    }
 
     const set = (k)=>{ 
       setMyskillD(k);
@@ -53,7 +59,7 @@ export default function Profileskill(display) {
              >
               {
                 pr?.map(v=>(
-                  <SwiperSlide key={v.num}>
+                  <SwiperSlide key={v.num} onClick={()=>{ prmove(v.url,v.num) }}>
                     <img src={v.img} style={{width:'100%', height:'100%'}} /><p> {v.title}</p>
                   </SwiperSlide>
                 ))

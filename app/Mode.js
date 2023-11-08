@@ -59,7 +59,7 @@ export default function Mode() {
             <main style={display == 'pc' ? style.main : style.mmain} >
                 {
                     page == 'home' ? <Home mode={mode} display={display} setPage={setPage} cf={cf} setUrl={setUrl} setVnum={setVnum} setTitle={setTitle} setContents={setContents} setCa={setCa} />
-                    : page == 'lim' ? <Lim display={display} cf={cf} />
+                    : page == 'lim' ? <Lim display={display} cf={cf} setPage={setPage} setUrl={setUrl} setVnum={setVnum} />
                     : page == 'pr' ? <Pr display={display} mode={mode} setUrl={setUrl} url={url} vnum={vnum} />
                     : page == 'blog' ? <Blog display={display} setUrl={setUrl} url={url} setTitle={setTitle} title={title} setContents={setContents} contents={contents} setCa={setCa} ca={ca} /> : <Admin cf={cf} setCf={setCf}/>
                 }

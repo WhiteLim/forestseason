@@ -5,7 +5,7 @@ import {light,dark} from '../color_config'
 import Skil from '../call/Skil';
 import Profileskill from '../call/Profileskill';
 
-export default function Lim({display,cf}) {
+export default function Lim({display,cf,setPage,setUrl,setVnum}) {
   const [ bd, setBd] = useState(false);
   const [ buding , setBuilding] = useState(false);
   const load = useRef();
@@ -72,7 +72,7 @@ export default function Lim({display,cf}) {
                 <p>{cf[0]?.summary}</p>
               </section>
             </section>
-            <Profileskill display={display} />
+            <Profileskill display={display} setPage={setPage} setUrl={setUrl} setVnum={setVnum} />
           </div>
         }
       </section>

@@ -44,6 +44,7 @@ export default function Pr({display,mode,url,setUrl,vnum}) {
                     <p><span style={style.code}>Work</span> : {v.work}</p>
                     <p><span style={style.code}>Work Date</span> : {v.workdate}</p>
                     <p><span style={style.code}>Team</span> : {v.team}</p>
+                    <p><button style={style.mainBtn} onClick={()=>{window.open(v.url)}} >사이트 방문</button></p>
                   </section>
                 </div>
               ))
@@ -52,7 +53,7 @@ export default function Pr({display,mode,url,setUrl,vnum}) {
       </section>
       <section style={display == 'pc' ? style.viewbox : style.mviewbox}>
         {
-          !url ? <h1 style={display == 'pc' ? style.build : {...style.build,fontSize:'18px'}}>Please click Portfolio</h1> : <iframe src={url} />
+          !url ? <h1 style={display == 'pc' ? style.build : {...style.build,fontSize:'18px'}}>Please click Portfolio</h1> : display == 'pc' ? <iframe src={url} /> : ''
         }
         
       </section>
